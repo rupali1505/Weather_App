@@ -11,7 +11,7 @@ export default function Weather() {
 
   useEffect(() => {
     if (cityName) {
-    setLoading(true);
+      setLoading(true);
       const url = `https://api.weatherapi.com/v1/current.json?key=${key}&q=${cityName}`;
       fetch(url)
         .then((resp) => resp.json())
@@ -21,19 +21,22 @@ export default function Weather() {
           }
           setData(json);
         })
-        .catch(() => alert("Failed to fetch weather data"))
+        .catch(() => {
+          alert("Failed to fetch weather data");
+        })
         .finally(() => setLoading(false));
     }
   }, [cityName]);
 
   const handleChange = (e) => {
     const city = e.target.value;
+    setData(null);
     if (!city) {
       setInputValue("");
       return;
     }
     const cityValue = city[0].toUpperCase() + city.slice(1).toLowerCase();
-    // console.log(cityValue, "input Value");
+
     setInputValue(cityValue);
   };
 
@@ -85,19 +88,19 @@ export default function Weather() {
             paddingTop: "80px",
           }}
         >
-          <div className="weather-card">
+          <div className="weather-cards">
             <p>Temperature </p>
             <p>{data.current.temp_c}</p>
           </div>
-          <div className="weather-card">
+          <div className="weather-cards">
             <p>Humidity</p>
             <p>{data.current.humidity}%</p>
           </div>
-          <div className="weather-card">
+          <div className="weather-cards ">
             <p>Condition</p>
             <p>{data.current.condition.text}</p>
           </div>
-          <div className="weather-card">
+          <div className="weather-cards">
             <p>Wind Speed</p>
             <p>{data.current.wind_kph}kph</p>
           </div>
