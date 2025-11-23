@@ -78,7 +78,7 @@ export default function Weather() {
       >
         Search
       </button>
-      {loading && <p>Loading Data...</p>}
+      {loading && <p>Loading data...</p>}
 
       {data && (
         <div
@@ -88,19 +88,19 @@ export default function Weather() {
             paddingTop: "80px",
           }}
         >
-          <div className="weather-cards">
+          <div className="weather-card">
             <p>Temperature </p>
             <p>{data.current.temp_c}</p>
           </div>
-          <div className="weather-cards">
+          <div className="weather-card">
             <p>Humidity</p>
             <p>{data.current.humidity}%</p>
           </div>
-          <div className="weather-cards ">
+          <div className="weather-card">
             <p>Condition</p>
             <p>{data.current.condition.text}</p>
           </div>
-          <div className="weather-cards">
+          <div className="weather-card">
             <p>Wind Speed</p>
             <p>{data.current.wind_kph}kph</p>
           </div>
