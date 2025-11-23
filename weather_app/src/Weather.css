@@ -1,0 +1,10 @@
+.weather-card{
+    background-color: white;
+    color:'black';
+    border: none;
+     height: 100px;
+     width: 150px;
+     border-radius: 5px
+
+}
+   
