@@ -11,6 +11,7 @@ export default function Weather() {
 
   useEffect(() => {
     if (cityName) {
+    setLoading(true);
       const url = `https://api.weatherapi.com/v1/current.json?key=${key}&q=${cityName}`;
       fetch(url)
         .then((resp) => resp.json())
